@@ -39,6 +39,25 @@ window.UpcomingView = Backbone.View.extend({
     }
 });
 
+window.FavoritesView = Backbone.View.extend({
+
+    template:_.template($('#fav').html()),
+
+    render:function (eventName) {
+        $(this.el).html(this.template());
+        return this;
+    }
+});
+
+window.MovieView = Backbone.View.extend({
+
+    template:_.template($('#movie').html()),
+
+    render:function (eventName) {
+        $(this.el).html(this.template());
+        return this;
+    }
+});
 
 
 
@@ -80,6 +99,8 @@ var AppRouter = Backbone.Router.extend({
 		"intheater":"intheater",
 		"dvd":"dvd",
 		"upcoming":"upcoming",
+        "fav":"fav",
+        "movie":"movie",
         "page1":"page1",
         "page2":"page2"
     },
@@ -113,6 +134,16 @@ var AppRouter = Backbone.Router.extend({
 		this.changePage(new UpcomingView());
 	},
 	
+    fav:function(){
+        console.log('#fav');
+        this.changePage(new FavoritesView());
+    },
+
+    movie:function(){
+        console.log('#movie');
+        this.changePage(new MovieView());
+    },
+
     page1:function () {
         console.log('#page1');
         this.changePage(new Page1View());
