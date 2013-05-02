@@ -117,6 +117,16 @@ var AppRouter = Backbone.Router.extend({
     home:function () {
         console.log('#home');
         this.changePage(new HomeView());
+		
+		var tpl, jsassets, tag, i,l;
+		tpl = document.getElementById('home');
+		jsassets = (tpl.getAttribute('data-jsassets') || '').split(',');
+		for(i = 0, l = jsassets.length; i < l; i++){
+  			tag = document.createElement('script');
+  			tag.type = "text/javascript";
+  			tag.src = jsassets[i];
+  			document.head.appendChild(tag);
+		}
     },
 	
 	intheater:function(){
