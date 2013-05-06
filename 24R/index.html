@@ -10,18 +10,25 @@
 
     <!-- The Templates -->
 	<!--Home-->
-    <script type="text/template" id="home" data-jsassets="js/rt.js">
+    <script type="text/template" id="home" data-jsassets="js/home.js">
 
         <div data-role="header" data-position="fixed" data-id="vs_header">
-            <h1>Home</h1>
+            <h1>24Raspberries</h1>
+			
             <div data-role="fieldcontain" id="searcher">
-                <input search="" id="search" placeholder="Search for Movies..." value="" type="search" />
-				
+                <input id="obj" placeholder="Search for Movies..." value="" type="search" />
+				<!--<input type="button" value="submit"/> -->
+				<a href="#btt" data-role="button" data-icon="search">Submit</a>
             </div>
+			
         </div>
+		
+		
+
+		<h3>&emsp;&emsp;Top Box Office</h3>	
 
 		<div class="main-movies"></div>
-							
+						
 		<div data-role="footer" data-position="fixed" data-id="vs_footer">
 			<div data-role="navbar">
 				<ul>
@@ -33,27 +40,42 @@
 				</ul>
 			</div><!-- navbar -->
 		</div><!-- footer -->
+		
     </script>
+    
+    
+    <script type="text/template" id="btt">
+
+        <div data-role="header" data-position="fixed" data-id="vs_header">
+            <h1>Home</h1>
+			
+            <div data-role="fieldcontain" id="searcher">
+                <input id="obj" placeholder="Search for Movies..." value="" type="search" />
+				<!--<input type="button" value="submit"/> -->
+				<a href="#btt" data-role="button" data-icon="search">Submit</a>
+            </div>
+			
+        </div>
+		
+		
+
+		
+		</div><!-- footer -->
+		
+    </script>
+    
+    
 	
 	
 	<!--In Theaters-->
-	<script type="text/template" id="intheater">
+	<script type="text/template" id="intheater" data-jsassets="js/intheater.js">
 
         <div data-role="header" data-position="fixed" data-id="vs_header">
             <h1>In Theaters</h1>
-        </div>
+        </div>	
 
-        <div data-role="content">
-            <h3>Application Template for using Backbone.js and jQuery Mobile.</h3>
-            <p>Backbone.js is used for code organization (Models, Views) and "routing".</p>
-            <p>jQuery Mobile is used for its mobile styles and widgets. The routing and navigation capabilities of jQuery Mobile are disbled to let Backbone.js handle these requirements.</p>
-            <p>This is the Home page. It was created dynamically using an underscore.js template.</p>
-            <p>Navigate to:</p>
-            <ul data-role="listview"  data-inset="true">
-                <li><a href="#page1">Page 1</a></li>
-                <li><a href="#page2">Page 2</a></li>
-            </ul>			
-        </div>
+		<div class="intheater"></div>
+						
 		<div data-role="footer" data-position="fixed" data-id="vs_footer">
 			<div data-role="navbar">
 				<ul>
@@ -68,22 +90,13 @@
     </script>
 	
 	<!--DVD-->
-	<script type="text/template" id="dvd">
+	<script type="text/template" id="dvd" data-jsassets="js/dvd.js">
         <div data-role="header" data-position="fixed" data-id="vs_header">
-            <h1>DVD</h1>
+            <h1>Latest DVD Releases</h1>
         </div>
 
-        <div data-role="content">
-            <h3>Application Template for using Backbone.js and jQuery Mobile.</h3>
-            <p>Backbone.js is used for code organization (Models, Views) and "routing".</p>
-            <p>jQuery Mobile is used for its mobile styles and widgets. The routing and navigation capabilities of jQuery Mobile are disbled to let Backbone.js handle these requirements.</p>
-            <p>This is the Home page. It was created dynamically using an underscore.js template.</p>
-            <p>Navigate to:</p>
-            <ul data-role="listview"  data-inset="true">
-                <li><a href="#page1">Page 1</a></li>
-                <li><a href="#page2">Page 2</a></li>
-            </ul>			
-        </div>
+		<div class="dvd"></div>
+
 		<div data-role="footer" data-position="fixed" data-id="vs_footer">
 			<div data-role="navbar">
 				<ul>
@@ -97,23 +110,13 @@
 		</div><!-- footer -->
     </script>
 	<!--Upcoming-->
-	<script type="text/template" id="upcoming">
-
+	<script type="text/template" id="upcoming" data-jsassets="js/upcoming.js">
         <div data-role="header" data-position="fixed" data-id="vs_header">
-            <h1>Upcoming</h1>
+            <h1>Upcoming Movies</h1>
         </div>
 
-        <div data-role="content">
-            <h3>Application Template for using Backbone.js and jQuery Mobile.</h3>
-            <p>Backbone.js is used for code organization (Models, Views) and "routing".</p>
-            <p>jQuery Mobile is used for its mobile styles and widgets. The routing and navigation capabilities of jQuery Mobile are disbled to let Backbone.js handle these requirements.</p>
-            <p>This is the Home page. It was created dynamically using an underscore.js template.</p>
-            <p>Navigate to:</p>
-            <ul data-role="listview"  data-inset="true">
-                <li><a href="#page1">Page 1</a></li>
-                <li><a href="#page2">Page 2</a></li>
-            </ul>			
-        </div>
+		<div class="upcoming"></div>
+
 		<div data-role="footer" data-position="fixed" data-id="vs_footer">
 			<div data-role="navbar">
 				<ul>
@@ -125,6 +128,7 @@
 				</ul>
 			</div><!-- navbar -->
 		</div><!-- footer -->
+    </script>><!-- footer -->
     </script>
 	
     <!--Favorites-->
@@ -159,12 +163,15 @@
     </script>
 	
 	<!--Movie Information-->
-	<script type="text/template" id="movie">
+	<script type="text/template" id="movie" data-jsassets="js/rt.js">
 
         <div data-role="header">
             <a href="#" data-icon="back" class="back ui-btn-left">Back</a>
             <h1>Movie</h1>
         </div>
+
+		<div class="main-movies"></div>
+
 
         <div data-role="content">
             <p>This is Movie. It was created dynamically using an underscore.js template.</p>

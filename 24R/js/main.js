@@ -9,6 +9,18 @@ window.HomeView = Backbone.View.extend({
 });
 
 
+window.BTT = Backbone.View.extend({
+
+    template:_.template($('#btt').html()),
+
+    render:function (eventName) {
+        $(this.el).html(this.template());
+        return this;
+    }
+});
+
+
+
 window.InTheaterView = Backbone.View.extend({
 
     template:_.template($('#intheater').html()),
@@ -63,15 +75,6 @@ window.MovieView = Backbone.View.extend({
 
 
 
-
-
-
-
-
-
-
-
-
 window.Page1View = Backbone.View.extend({
 
     template:_.template($('#page1').html()),
@@ -96,6 +99,7 @@ var AppRouter = Backbone.Router.extend({
 
     routes:{
         "":"home",
+		"btt":"btt",
 		"intheater":"intheater",
 		"dvd":"dvd",
 		"upcoming":"upcoming",
@@ -127,21 +131,60 @@ var AppRouter = Backbone.Router.extend({
   			tag.src = jsassets[i];
   			document.head.appendChild(tag);
 		}
+		
+		
     },
 	
 	intheater:function(){
 		console.log('#intheater');
 		this.changePage(new InTheaterView());
+		
+		var tpl, jsassets, tag, i,l;
+		tpl = document.getElementById('intheater');
+		jsassets = (tpl.getAttribute('data-jsassets') || '').split(',');
+		for(i = 0, l = jsassets.length; i < l; i++){
+  			tag = document.createElement('script');
+  			tag.type = "text/javascript";
+  			tag.src = jsassets[i];
+  			document.head.appendChild(tag);
+		}
+		
 	},
+	
+	btt:function(){
+		console.log('#btt');
+		this.changePage(new BTTView());
+	},
+	
 	
 	dvd:function(){
 		console.log('#dvd');
 		this.changePage(new DVDView());
+		
+		var tpl, jsassets, tag, i,l;
+		tpl = document.getElementById('dvd');
+		jsassets = (tpl.getAttribute('data-jsassets') || '').split(',');
+		for(i = 0, l = jsassets.length; i < l; i++){
+  			tag = document.createElement('script');
+  			tag.type = "text/javascript";
+  			tag.src = jsassets[i];
+  			document.head.appendChild(tag);
+		}
 	},
 	
 	upcoming:function(){
 		console.log('#upcoming');
 		this.changePage(new UpcomingView());
+		
+		var tpl, jsassets, tag, i,l;
+		tpl = document.getElementById('upcoming');
+		jsassets = (tpl.getAttribute('data-jsassets') || '').split(',');
+		for(i = 0, l = jsassets.length; i < l; i++){
+  			tag = document.createElement('script');
+  			tag.type = "text/javascript";
+  			tag.src = jsassets[i];
+  			document.head.appendChild(tag);
+		}
 	},
 	
     fav:function(){
@@ -152,6 +195,17 @@ var AppRouter = Backbone.Router.extend({
     movie:function(){
         console.log('#movie');
         this.changePage(new MovieView());
+		
+		var tpl, jsassets, tag, i,l;
+		tpl = document.getElementById('movie');
+		jsassets = (tpl.getAttribute('data-jsassets') || '').split(',');
+		for(i = 0, l = jsassets.length; i < l; i++){
+  			tag = document.createElement('script');
+  			tag.type = "text/javascript";
+  			tag.src = jsassets[i];
+  			document.head.appendChild(tag);
+		}
+		
     },
 
     page1:function () {
@@ -184,3 +238,9 @@ $(document).ready(function () {
     app = new AppRouter();
     Backbone.history.start();
 });
+
+
+
+
+
+
