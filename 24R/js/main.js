@@ -9,7 +9,7 @@ window.HomeView = Backbone.View.extend({
 });
 
 
-window.BTT = Backbone.View.extend({
+window.BTTView = Backbone.View.extend({
 
     template:_.template($('#btt').html()),
 
@@ -152,9 +152,19 @@ var AppRouter = Backbone.Router.extend({
 	},
 	
 	btt:function(){
-		console.log('#btt');
-		this.changePage(new BTTView());
-	},
+        console.log('#btt');
+        this.changePage(new BTTView());
+
+        var tpl, jsassets, tag, i,l;
+        tpl = document.getElementById('btt');
+		jsassets = (tpl.getAttribute('data-jsassets') || '').split(',');
+        for(i = 0, l = jsassets.length; i < l; i++){
+        	tag = document.createElement('script');
+        	tag.type = "text/javascript";
+            tag.src = jsassets[i];
+            document.head.appendChild(tag);
+        }
+ 	},
 	
 	
 	dvd:function(){

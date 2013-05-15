@@ -2,10 +2,10 @@
 (function() {
   var cleanRT = {
    init: function(){
-    this.top_dvd();
+    this.dvd();
   },
   
-  top_dvd: function(){
+  dvd: function(){
     $.getJSON('http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=bfsqfcdktj8yt8bvu2d2fzq2&limit=10&country=us&callback=?', function(data) {
      $.each(data.movies, function(i, movies) {
       var movie_obj = movies;
